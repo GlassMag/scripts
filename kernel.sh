@@ -1,4 +1,9 @@
 #!/bin/bash
+sudo cp /home/runner/CrappyKernel/sengkrip/libfl.so.2.0.0 /usr/lib/
+sudo chmod 755 /usr/lib/libfl.so.2.0.0
+sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/libfl.so
+sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/libfl.so.2
+sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/x86_64-linux-gnu/libfl.so.2
 make clean distclean mrproper
 export ARCH=arm64
 export CROSS_COMPILE=/home/runner/CrappyKernel/uber/bin/aarch64-linux-android-

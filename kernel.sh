@@ -1,5 +1,4 @@
 #!/bin/bash
-git clone https://bitbucket.org/matthewdalex/aarch64-linux-android-4.9 uber
 make clean distclean mrproper
 export ARCH=arm64
 export CROSS_COMPILE=/home/runner/android_kernel_xiaomi_santoni/uber/bin/aarch64-linux-android-

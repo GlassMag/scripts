@@ -1,7 +1,7 @@
 #!/bin/bash
 make clean distclean mrproper
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/android_kernel_xiaomi_santoni/uber/bin/aarch64-linux-android-
+export CROSS_COMPILE=/home/runner/CrappyKernel/uber/bin/aarch64-linux-android-
 export KBUILD_BUILD_USER=magchuz
 export KBUILD_BUILD_HOST=CrappyServer
 export USE_CCACHE=1

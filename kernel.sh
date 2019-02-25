@@ -1,7 +1,8 @@
 #!/bin/bash
 mkdir tc
 cd tc
-wget -c https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/gcc-linaro-7.4.1-2019.02-i686_aarch64-linux-gnu.tar.xz -O - | tar xvf
+curl -o tc.tar.xz https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu.tar.xz
+tar -xvzf tc.tar.xz
 cd ..
 make clean distclean mrproper
 export ARCH=arm64

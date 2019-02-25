@@ -1,14 +1,13 @@
 #!/bin/bash
-sudo cp /home/runner/CrappyKernel/sengkrip/libfl.so.2.0.0 /usr/lib/
-sudo chmod 755 /usr/lib/libfl.so.2.0.0
-sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/libfl.so
-sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/libfl.so.2
-sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/x86_64-linux-gnu/libfl.so.2
+mkdir tc
+cd tc
+wget -c https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/gcc-linaro-7.4.1-2019.02-i686_aarch64-linux-gnu.tar.xz -O - | tar -xz
+cd ..
 make clean distclean mrproper
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/CrappyKernel/uber/bin/aarch64-linux-android-
-export KBUILD_BUILD_USER=magchuz
-export KBUILD_BUILD_HOST=CrappyServer
+export CROSS_COMPILE=/home/runner/CrappyKernel/tc/bin/aarch64-linux-gnu-
+export KBUILD_BUILD_USER=ProtoChuz
+export KBUILD_BUILD_HOST=SemaphoreCI
 export USE_CCACHE=1
 export CACHE_DIR=~/.ccache
 curl -F chat_id="-1001415832052" -F text="Compiling New Commits..." https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage

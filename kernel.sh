@@ -1,12 +1,9 @@
 #!/bin/bash
-mkdir tc
-cd tc
-curl -o tc.tar.xz https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu.tar.xz
-tar -xvzf tc.tar.xz
-cd ..
+wget https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu.tar.xz
+tar xvf gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu.tar.xz
 make clean distclean mrproper
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/CrappyKernel/tc/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=/home/runner/CrappyKernel/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 export KBUILD_BUILD_USER=ProtoChuz
 export KBUILD_BUILD_HOST=SemaphoreCI
 export USE_CCACHE=1

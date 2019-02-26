@@ -19,7 +19,7 @@ if [ ! -f output/arch/arm64/boot/Image.gz-dtb ]; then
     curl -F chat_id="-1001415832052" -F text="HolyCrap, Compile Fail :(" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage
 
 else 
-cp output/arch/arm64/boot/Image AnyKernel2/kernel/Image.gz
+cp output/arch/arm64/boot/Image.gz AnyKernel2/kernel/Image.gz
 
 cp output/arch/arm64/boot/dts/qcom/msm8940-pmi8950-qrd-sku7_S88536AA2.dtb AnyKernel2/nontreble/msm8940-pmi8950-qrd-sku7_S88536AA2.dtb
 

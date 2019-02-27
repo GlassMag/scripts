@@ -2,7 +2,7 @@
 git clone git://github.com/krasCGQ/aarch64-linux-android -b a53-7.x --depth=1 gcc
 make clean distclean mrproper
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-linux-android-
+export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-
 export KBUILD_BUILD_USER=ProtoChuz
 export KBUILD_BUILD_HOST=SemaphoreCI
 export USE_CCACHE=1

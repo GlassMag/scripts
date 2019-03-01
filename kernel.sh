@@ -1,8 +1,10 @@
 #!/bin/bash
-git clone git://github.com/krasCGQ/aarch64-linux-android -b a53-7.x --depth=1 gcc
+wget "https://developer.arm.com/-/media/Files/downloads/gnu-a/8.2-2019.01/gcc-arm-8.2-2019.01-x86_64-aarch64-linux-gnu.tar.xz" 
+tar xvf gcc-arm-8.2-2019.01-x86_64-aarch64-linux-gnu.tar.xz -C gcc
+
 make clean distclean mrproper
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-
+export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/ aarch64-linux-gnu-
 export KBUILD_BUILD_USER=ProtoChuz
 export KBUILD_BUILD_HOST=SemaphoreCI
 export USE_CCACHE=1

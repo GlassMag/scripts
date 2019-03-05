@@ -6,7 +6,7 @@ export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-
 export KBUILD_BUILD_USER=ProtoChuz
 export KBUILD_BUILD_HOST=SemaphoreCI
 tanggal=$(date +'%m%d-%H%M')
-curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="<b>CrappyKernel Liquor</b> New Build
+curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="Building <b>CrappyKernel Liquor</b>
 Compiler : <code>Linaro GCC 7.3</code>
 Last Commit : <code>$(git log --oneline --decorate --color --pretty=%s --first-parent -1)</code>
 Build Started on : <code>$(date)</code>

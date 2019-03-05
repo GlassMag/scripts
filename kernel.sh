@@ -18,6 +18,7 @@ make -C $(pwd) O=output santoni_nontreble_defconfig
 make -j$(nproc --all) -C $(pwd) O=output | tee ${tanggal}-Log.txt
 if [ ! -f output/arch/arm64/boot/Image.gz-dtb ]; then
     echo "HolyCrap, Compiling Failed"
+    curl -F chat_id="-1001324692867" -F document=@"${tanggal}-Log.txt" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendDocument
     curl -F chat_id="-1001415832052" -F text="Build throw an error(s)" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage
     curl -F chat_id="-1001415832052" -F sticker="CAADBQADlAADcX38FOe-kEXhrShYAg" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendSticker
 

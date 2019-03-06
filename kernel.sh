@@ -5,6 +5,8 @@ export ARCH=arm64
 export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-
 export KBUILD_BUILD_USER=ProtoChuz
 export KBUILD_BUILD_HOST=SemaphoreCI
+export USE_CCACHE=1
+export CACHE_DIR=~/.ccache
 tanggal=$(date +'%m%d-%H%M')
 curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="Building <b>CrappyKernel Liquor</b>
 Compiler : <code>Linaro GCC 7.3</code>

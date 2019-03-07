@@ -8,7 +8,7 @@ export KBUILD_BUILD_HOST=SemaphoreCI
 export USE_CCACHE=1
 export CACHE_DIR=~/.ccache
 tanggal=$(date +'%m%d-%H%M')
-curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="Building <b>CrappyKernel Liquor</b>
+curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="Building <b>CrappyKernel Liquid</b>
 Compiler : <code>Linaro GCC 7.3</code>
 Last Commit : <code>$(git log --oneline --decorate --color --pretty=%s --first-parent -1)</code>
 Build Started on : <code>$(date)</code>
@@ -33,8 +33,8 @@ cp output/arch/arm64/boot/dts/qcom/msm8940-pmi8950-qrd-sku7_S88536AA2-treble.dtb
 
 cd AnyKernel2
 rm -rf *.zip
-zip -r9 CrappyKernel-Liquor-${tanggal}.zip * -x README.md CrappyKernel-Liquor--${tanggal}.zip
-curl -F chat_id="-1001415832052" -F document=@"CrappyKernel-Liquor-${tanggal}.zip" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendDocument
+zip -r9 CrappyKernel-Liquid-${tanggal}.zip * -x README.md CrappyKernel-Liquid--${tanggal}.zip
+curl -F chat_id="-1001415832052" -F document=@"CrappyKernel-Liquid-${tanggal}.zip" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendDocument
 END=$(date +"%s")
 DIFF=$(($END - $START))
 curl -F chat_id="-1001415832052" -F text="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds." https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage

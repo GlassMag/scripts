@@ -23,7 +23,7 @@ START=$(date +"%s");
 make -C $(pwd) O=output santoni_nontreble_defconfig
 
 PATH="/home/runner/CrappyKernel/clang/bin:/home/runner/CrappyKernel/gcc/bin:${PATH}" \
-make -j$(nproc --all) O=out \
+make -j$(nproc --all) O=output \
                       ARCH=arm64 \
                       CC=clang \
                       CLANG_TRIPLE=aarch64-linux-gnu- \

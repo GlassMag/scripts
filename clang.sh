@@ -6,14 +6,7 @@ wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+a
 tar -xvf clang-r328903.tar.gz
 cd ..
 make clean distclean mrproper
-export ARCH=arm64
-PATH="/home/runner/CrappyKernel/clang/bin:/home/runner/CrappyKernel/gcc/bin:${PATH}" \
-make -j$(nproc --all) O=out \
-                      ARCH=arm64 \
-                      CC=clang \
-                      CLANG_TRIPLE=aarch64-linux-gnu- \
-                      CROSS_COMPILE=aarch64-cortex_a53-linux-android-
-                      
+export ARCH=arm64     
 export KBUILD_BUILD_USER=ProtoChuz
 export KBUILD_BUILD_HOST=SemaphoreCI
 export USE_CCACHE=1
@@ -28,7 +21,13 @@ rm -rf output
 mkdir output
 START=$(date +"%s");
 make -C $(pwd) O=output santoni_nontreble_defconfig
-make -j$(nproc --all) -C $(pwd) O=output 2>&1| tee ${tanggal}-Log.txt
+
+PATH="/home/runner/CrappyKernel/clang/bin:/home/runner/CrappyKernel/gcc/bin:${PATH}" \
+make -j$(nproc --all) O=out \
+                      ARCH=arm64 \
+                      CC=clang \
+                      CLANG_TRIPLE=aarch64-linux-gnu- \
+                      CROSS_COMPILE=aarch64-cortex_a53-linux-android-
 if [ ! -f output/arch/arm64/boot/Image.gz-dtb ]; then
     echo "HolyCrap, Compiling Failed"
     curl -F chat_id="-1001324692867" -F document=@"${tanggal}-Log.txt" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendDocument

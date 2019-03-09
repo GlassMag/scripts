@@ -1,18 +1,19 @@
 #!/bin/bash
 git clone git://github.com/krasCGQ/aarch64-linux-android -b a53-7.x --depth=1 gcc
-mkdir celang
-cd celang
+mkdir clang
+cd clang
 wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/master/clang-r328903.tar.gz 
 tar -xvf clang-r328903.tar.gz
 cd ..
 make clean distclean mrproper
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-
-export CC=/home/runner/CrappyKernel/celang/bin/clang
-export CLANG_TRIPLE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-
-export CLANG_LD_PATH=/home/runner/CrappyKernel/clang/lib
-export LLVM_DIS=/home/runner/CrappyKernel/celang/bin/llvm-dis
-
+PATH="/home/runner/CrappyKernel/clang/bin:/home/runner/CrappyKernel/gcc/bin:${PATH}" \
+make -j$(nproc --all) O=out \
+                      ARCH=arm64 \
+                      CC=clang \
+                      CLANG_TRIPLE=aarch64-linux-gnu- \
+                      CROSS_COMPILE=aarch64-cortex_a53-linux-android-
+                      
 export KBUILD_BUILD_USER=ProtoChuz
 export KBUILD_BUILD_HOST=SemaphoreCI
 export USE_CCACHE=1

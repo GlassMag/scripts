@@ -7,6 +7,7 @@ tar -xvf clang-r328903.tar.gz
 cd ..
 make clean distclean mrproper
 export ARCH=arm64
+export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-
 export CC=/home/runner/CrappyKernel/celang/bin/clang
 export CLANG_TRIPLE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-
 export CLANG_LD_PATH=/home/runner/CrappyKernel/clang/lib

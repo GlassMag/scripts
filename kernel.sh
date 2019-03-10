@@ -1,10 +1,10 @@
 #!/bin/bash
-git clone git://github.com/krasCGQ/aarch64-linux-android -b a53-7.x --depth=1 gcc
+git clone https://github.com/Haseo97/aarch64-linux-gnu/ -b linaro-gcc-8.2.1 --depth=1 gcc
 make clean distclean mrproper
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-
-export KBUILD_BUILD_USER=ProtoChuz
-export KBUILD_BUILD_HOST=SemaphoreCI
+export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-linux-gnu-
+export KBUILD_BUILD_USER=CrappyUser
+export KBUILD_BUILD_HOST=Semaphore
 export USE_CCACHE=1
 export CACHE_DIR=~/.ccache
 tanggal=$(date +'%m%d-%H%M')

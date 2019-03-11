@@ -16,7 +16,7 @@ Build using : <code>SemaphoreCI</code>" https://api.telegram.org/bot757761074:AA
 rm -rf output
 mkdir output
 START=$(date +"%s");
-make -C $(pwd) O=output santoni_nontreble_defconfig
+make -C $(pwd) O=output santoni_defconfig
 make -j$(nproc --all) -C $(pwd) O=output 2>&1| tee ${tanggal}-Log.txt
 if [ ! -f output/arch/arm64/boot/Image.gz-dtb ]; then
     echo "HolyCrap, Compiling Failed"

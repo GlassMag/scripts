@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone git://github.com/krasCGQ/aarch64-linux-android -b a53-7.x --depth=1 gcc
+git clone git://github.com/krasCGQ/aarch64-linux-android -b opt-gnu-8.x --depth=1 gcc
 make clean distclean
 export ARCH=arm64
 export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-cortex_a53-linux-android-

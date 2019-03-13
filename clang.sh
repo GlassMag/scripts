@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone git://github.com/krasCGQ/aarch64-linux-android -b a53-7.x --depth=1 gcc
+git clone git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b master --depth=1 gcc
 mkdir clang
 cd clang
 wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/master/clang-r328903.tar.gz 
@@ -27,7 +27,7 @@ make -j$(nproc --all) O=output \
                       ARCH=arm64 \
                       CC=clang \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
-                      CROSS_COMPILE=aarch64-cortex_a53-linux-android-
+                      CROSS_COMPILE=aarch64-linux-android-
 if [ ! -f output/arch/arm64/boot/Image.gz-dtb ]; then
     echo "HolyCrap, Compiling Failed"
     curl -F chat_id="-1001324692867" -F document=@"${tanggal}-Log.txt" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendDocument

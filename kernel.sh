@@ -1,15 +1,15 @@
 #!/bin/bash
-git clone https://github.com/SomeFeaKOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnueabi-9.0 -b master --depth=1 gcc
+git clone git://github.com/krasCGQ/aarch64-linux-android -b opt-gnu-8.x --depth=1 gcc
 make clean distclean
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-linux-gnu- 
+export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-opt-linux-android- 
 export KBUILD_BUILD_USER=CrappyUser
 export KBUILD_BUILD_HOST=Semaphore
 export USE_CCACHE=1
 export CACHE_DIR=~/.ccache
 tanggal=$(date +'%m%d-%H%M')
 curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="Building <b>CrappyKernel Liquid</b>
-Compiler : <code>AOSP GCC 9 Experimental</code>
+Compiler : <code>AOSP GCC 8.2.1</code>
 Last Commit : <code>$(git log --oneline --decorate --color --pretty=%s --first-parent -1)</code>
 Build Started on : <code>$(date)</code>
 Build using : <code>SemaphoreCI</code>" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage

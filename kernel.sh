@@ -9,7 +9,7 @@ export USE_CCACHE=1
 export CACHE_DIR=~/.ccache
 tanggal=$(date +'%m%d-%H%M')
 curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="Building <b>CrappyKernel Liquid</b>
-Compiler : <code>AOSP GCC 8.2.1</code>
+Compiler : <code>GNU GCC 9</code>
 Last Commit : <code>$(git log --oneline --decorate --color --pretty=%s --first-parent -1)</code>
 Build Started on : <code>$(date)</code>
 Build using : <code>SemaphoreCI</code>" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage

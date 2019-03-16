@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone https://github.com/najahiiii/aarch64-linux-gnu/ -b gcc9-20190311 --depth=1 gcc
+git clone https://github.com/najahiiii/aarch64-linux-gnu/ -b gcc9-20190316 --depth=1 gcc
 make clean distclean
 export ARCH=arm64
 export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-linux-gnu-

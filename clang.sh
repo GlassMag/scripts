@@ -17,14 +17,17 @@ Build using : <code>SemaphoreCI</code>" https://api.telegram.org/bot757761074:AA
 rm -rf output
 mkdir output
 START=$(date +"%s");
-make -C $(pwd) O=output santoni_nontreble_defconfig
 
-PATH="/home/runner/CrappyKernel/clang/bin:/home/runner/CrappyKernel/gcc/bin:${PATH}" \
-make -j$(nproc --all) O=output \
-                      ARCH=arm64 \
-                      CC=clang \
-                      CLANG_TRIPLE=aarch64-linux-gnu- \
-                      CROSS_COMPILE=aarch64-linux-android-
+alias rolling="make ARCH=arm64 santoni_defconfig && time make -j$(nproc --all) ARCH=arm64 CC=${PWD}/clang/bin/clang CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE="${PWD}/gcc/bin/aarch64-linux-gnu-""
+export CLANG_TCHAIN=/home/runner/CrappyKernel/clang/bin/clang && export KBUILD_COMPILER_STRING=$(${PWD}/dtc/bin/clang --version | head -n 1 | perl -pe 's/\(.*?\)//gs' | sed -e 's/ */ /g' -e 's/[[:space:]]*$//' -e 's/DragonTC/Yuka/g')
+
+export CROSS_COMPILE=${PWD}/gcc/bin/aarch64-linux-android-
+
+
+
+make -C ${PWD} O=out santoni_defconfig;
+make O=output -j$(nproc --all);
+
 if [ ! -f output/arch/arm64/boot/Image.gz-dtb ]; then
     echo "HolyCrap, Compiling Failed"
     curl -F chat_id="-1001324692867" -F document=@"${tanggal}-Log.txt" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendDocument

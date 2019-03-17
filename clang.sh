@@ -1,9 +1,7 @@
 #!/bin/bash
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 gcc
-mkdir clang
-cd clang
 git clone https://bitbucket.org/xanaxdroid/dragontc-9.0/ --depth=1 clang
-cd ..
+
 make clean distclean mrproper
 export ARCH=arm64     
 export KBUILD_BUILD_USER=ProtoChuz

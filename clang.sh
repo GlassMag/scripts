@@ -2,8 +2,7 @@
 git clone git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b master --depth=1 gcc
 mkdir clang
 cd clang
-wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/master/clang-r328903.tar.gz 
-tar -xvf clang-r328903.tar.gz
+git clone https://bitbucket.org/xanaxdroid/dragontc-9.0/ --depth=1 clang
 cd ..
 make clean distclean mrproper
 export ARCH=arm64     
@@ -13,7 +12,7 @@ export USE_CCACHE=1
 export CACHE_DIR=~/.ccache
 tanggal=$(date +'%m%d-%H%M')
 curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="Building <b>CrappyKernel Liquid</b>
-Compiler : <code>Linaro GCC 7.3 & Clang</code>
+Compiler : <code>Google GCC 4.9 & Clang</code>
 Last Commit : <code>$(git log --oneline --decorate --color --pretty=%s --first-parent -1)</code>
 Build Started on : <code>$(date)</code>
 Build using : <code>SemaphoreCI</code>" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage

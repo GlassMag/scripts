@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 gcc
+git clone https://github.com/najahiiii/aarch64-linux-gnu.git -b gcc4.9.4-20190301 gcc
 git clone https://bitbucket.org/xanaxdroid/dragontc-9.0/ --depth=1 clang
 
 make clean distclean mrproper
@@ -9,8 +9,9 @@ export KBUILD_BUILD_HOST=SemaphoreCI
 export USE_CCACHE=1
 export CACHE_DIR=~/.ccache
 tanggal=$(date +'%m%d-%H%M')
+
 curl -F chat_id="-1001415832052" -F parse_mode="HTML" -F text="Building <b>CrappyKernel Liquid</b>
-Compiler : <code>Google GCC 4.9 & Clang</code>
+Compiler : <code>GNU GCC 4.9 & Clang</code>
 Last Commit : <code>$(git log --oneline --decorate --color --pretty=%s --first-parent -1)</code>
 Build Started on : <code>$(date)</code>
 Build using : <code>SemaphoreCI</code>" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage
@@ -18,16 +19,15 @@ rm -rf output
 mkdir output
 START=$(date +"%s");
 
-alias rolling="make ARCH=arm64 santoni_defconfig && time make -j$(nproc --all) ARCH=arm64 CC=${PWD}/clang/bin/clang CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE="${PWD}/gcc/bin/aarch64-linux-gnu-""
-export CLANG_TCHAIN=/home/runner/CrappyKernel/clang/bin/clang && export KBUILD_COMPILER_STRING=$(${PWD}/dtc/bin/clang --version | head -n 1 | perl -pe 's/\(.*?\)//gs' | sed -e 's/ */ /g' -e 's/[[:space:]]*$//' -e 's/DragonTC/Yuka/g')
+make O=output ARCH=arm64 santoni_defconfig
 
-export CROSS_COMPILE=${PWD}/gcc/bin/aarch64-linux-android-
-
-
-
-make -C ${PWD} O=out santoni_defconfig;
-make O=output -j$(nproc --all);
-
+PATH="/home/runner/CrappyKernel/clang/bin:/home/runner/CrappyKernel/gcc/bin:${PATH}" \
+make -j$(nproc --all) O=output \
+                      ARCH=arm64 \
+                      CC=clang \
+                      CLANG_TRIPLE=aarch64-linux-gnu- \
+                      CROSS_COMPILE=aarch64-linux-gnu-
+                      
 if [ ! -f output/arch/arm64/boot/Image.gz-dtb ]; then
     echo "HolyCrap, Compiling Failed"
     curl -F chat_id="-1001324692867" -F document=@"${tanggal}-Log.txt" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendDocument

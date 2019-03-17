@@ -1,7 +1,7 @@
 #!/bin/bash
 git clone https://github.com/milouk/Uber-Prebuilt-Toolchains/ -b uber-9.0.0 --depth=1 gcc
 
-sudo cp libfl.so.2.0.0 /usr/lib/
+sudo cp sengkrip/libfl.so.2.0.0 /usr/lib/
 sudo chmod 755 /usr/lib/libfl.so.2.0.0
 sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/libfl.so
 sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/libfl.so.2

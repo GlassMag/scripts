@@ -1,8 +1,8 @@
 #!/bin/bash
-git clone https://github.com/najahiiii/aarch64-linux-gnu/ -b gcc9-20190316 --depth=1 gcc
+git clone https://github.com/milouk/Uber-Prebuilt-Toolchains/ -b uber-9.0.0 --depth=1 gcc
 make clean distclean
 export ARCH=arm64
-export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=/home/runner/CrappyKernel/gcc/bin/aarch64-linux-android-
 export KBUILD_BUILD_USER=CrappyUser
 export KBUILD_BUILD_HOST=Semaphore
 export USE_CCACHE=1

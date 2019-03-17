@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b master --depth=1 gcc
+git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 gcc
 mkdir clang
 cd clang
 git clone https://bitbucket.org/xanaxdroid/dragontc-9.0/ --depth=1 clang

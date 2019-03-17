@@ -6,6 +6,7 @@ sudo chmod 755 /usr/lib/libfl.so.2.0.0
 sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/libfl.so
 sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/libfl.so.2
 sudo ln -s /usr/lib/libfl.so.2.0.0 /usr/lib/x86_64-linux-gnu/libfl.so.2
+sudo ln -s /usr/lib/x86_64-linux-gnu/libmpfr.so.6 /usr/lib/x86_64-linux-gnu/libmpfr.so.4
 
 make clean distclean
 export ARCH=arm64

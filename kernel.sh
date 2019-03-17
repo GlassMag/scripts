@@ -31,7 +31,7 @@ if [ ! -f output/arch/arm64/boot/Image.gz-dtb ]; then
     sadS=${sad[$randS]}
     curl -F chat_id="-1001324692867" -F document=@"${tanggal}-Log.txt" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendDocument
     curl -F chat_id="-1001415832052" -F text="Build throw an error(s)" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage
-    curl -F chat_id="-1001415832052" -F sticker="$(sadS)" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendSticker
+    curl -F chat_id="-1001415832052" -F sticker="${sadS}" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendSticker
 else 
 cp output/arch/arm64/boot/Image.gz AnyKernel2/kernel/Image.gz
 cp output/arch/arm64/boot/dts/qcom/msm8940-pmi8950-qrd-sku7_S88536AA2.dtb AnyKernel2/nontreble/msm8940-pmi8950-qrd-sku7_S88536AA2.dtb
@@ -50,6 +50,6 @@ randS=$[$RANDOM % ${#happy[@]}]
 happyS=${happy[$randS]}
 
 curl -F chat_id="-1001415832052" -F text="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds." https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendMessage
-curl -F chat_id="-1001415832052" -F sticker="$(happyS)" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendSticker
+curl -F chat_id="-1001415832052" -F sticker="${happyS}" https://api.telegram.org/bot757761074:AAFKxcBRT-hsNfyC0wXTH_GXJozT7yzflKU/sendSticker
 
 fi
